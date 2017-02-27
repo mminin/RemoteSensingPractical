@@ -36,9 +36,13 @@ It should automatically display
 Right click on the layer in the layers panel and choose properties. 
 Confirm that render type is Multiband color. Change blue to band 02, green to 03 and red to 04.
 Set color enhancement ot stretch to Min/Max. Change min/max values to 0 for Min, and 1 for Max.
+
 <img src="illustrations/ScreenshotRGB.png" alt="Drawing" width="400"/>
+
 Click Apply and OK. You should now see true colour RGB.
+
 <img src="illustrations/TrueColourRGB01.png" alt="Drawing" width="400"/>
+
 
 ### Singe band
 Right click on the Layer in the Layers Panel, click duplicate, 
@@ -48,7 +52,8 @@ Change render type to singleband pseudocolor, select band 11, interpolation line
 Load min/max values, use accuracy "Actual". Click classify.
 In blending mode select "Overlay". Press Apply then OK.
 You should now see high altitude clouds highlighted in purple. 
-<img src="illustrations/cirrus-Clouds.png" alt="Drawing" style="width: 200px;"/>
+
+<img src="illustrations/cirrus-Clouds.png" alt="Drawing" width="500"/>
 
 
 
