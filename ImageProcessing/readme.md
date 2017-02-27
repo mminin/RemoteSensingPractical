@@ -29,7 +29,8 @@ Copy this file into your work directory and uncompress ("extract here").
 Open QGIS and start a new project, save to the work directory.
 Drag and drop this file onto the screen. 
 It should automatically display
-<img src="illustrations/load.png" alt="Drawing" style="width: 200px;"/>
+![](illustrations/load.png)
+" alt="Drawing" style="width: 200px;"/>
 
 ### RGB
 Right click on the layer in the layers panel and choose properties. 
