@@ -9,14 +9,10 @@ Tools of use:  SNAP / QGis / Orfeo toolbox / Gdal
 * Filtering, including spatial, convolution etc.
 
 ## Getting data
-_Data for this tutorial is in the attached folder_
 
-Attached we provide files obtained from Sentinel 2, 
-which have been mosaiced and clipped to the area of 
-interest and converted to multiband GeoTIFF format.
+We provide files obtained from Sentinel 2, which have been mosaiced and clipped to the area of interest and converted to multiband GeoTIFF format.
 
-Additionally, the band values have been divided by 4095, to convert from
-the range of brightness levels (0-4095) to brightness as a ratio (0-1).
+Additionally, the band values have been divided by 4095, to convert from the range of brightness levels (0-4095) to brightness as a ratio (0-1).
 
 The source data you can find on https://scihub.copernicus.eu/
 
