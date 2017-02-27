@@ -55,6 +55,40 @@ You should now see high altitude clouds highlighted in purple.
 
 <img src="illustrations/cirrus-Clouds.png" alt="Drawing" width="500"/>
 
+## Producing radiometric indices derived maps
+
+To produced radiometric indices we will be using orfeo toolbox.
+The correct tool to use is otbcli_RadiometricIndices
+
+From the workspace directory run 
+
+otbcli_RadiometricIndices -in allBands01a.tif -channels.blue 2 -channels.green 3 -channels.red 4 -channels.nir 8 -list Soil:BI2 Vegetation:NDVI Soil:CI -out randInd01.tif
+
+<img src="illustrations/radiom.png" alt="Drawing" width="400"/>
+
+Zoom into area free of cloud cover and load min/max values while clipping extent to canvas.
+
+<img src="illustrations/clipToCanvas.png" alt="Drawing" width="400"/>
+
+The resolution on this image is rather poor. Various channels of Sentinel 2 come at different resolution, the highest resolution channels are at 10 m/px, this image was downsampled to the lowest common resolution of all channels, that is 60 m/px. You can find the spatial resolution of all channels on this page: https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial
+
+For most radiometric indices we only need R, G, B, and NIR channels, these are available in 10 m/px, and you can download these from:
+
+https://www.dropbox.com/s/ns3fdgmv7w3m22f/RGBNir01.tif.zip?dl=0
+
+Place this image into your workspace directory, drag and drop into QGIS, 
+and in properties change channels blue to band 01, green to 02 and red to 03.
+
+<img src="illustrations/HighResRGB.png" alt="Drawing" width="400"/>
+
+Lets re-run the otbcli_RadiometricIndices with high resolution data.
+
+otbcli_RadiometricIndices -in RGBNir01.tif -channels.blue 1 -channels.green 2 -channels.red 3 -channels.nir 4 -list Soil:BI2 Vegetation:NDVI Soil:CI -out randIndHR01.tif
+
+Add the output image (randIndHR01.tif), and edit min/max values in the same way as was done with low resolution image. Now you should see a lot more.
+
+<img src="illustrations/HighResDerived.png" alt="Drawing" width="400"/>
+
 
 
 
