@@ -8,5 +8,5 @@ Tools of use:  SNAP / QGis / Orfeo toolbox / Gdal
     * PCA
     * Filtering, including spatial, convolution etc.
     
-    _Data for this tutorial is in the attached folder_
+    _Data_for_this_tutorial_is_in_the_attached folder_
     
