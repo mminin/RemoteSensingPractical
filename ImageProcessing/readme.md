@@ -32,7 +32,7 @@ It should automatically display
 
 <img src="illustrations/load.png" width="400"/>
 
-### RGB
+#### RGB
 Right click on the layer in the layers panel and choose properties. 
 Confirm that render type is Multiband color. Change blue to band 02, green to 03 and red to 04.
 Set color enhancement ot stretch to Min/Max. Change min/max values to 0 for Min, and 1 for Max.
@@ -44,7 +44,7 @@ Click Apply and OK. You should now see true colour RGB.
 <img src="illustrations/TrueColourRGB01.png" alt="Drawing" width="400"/>
 
 
-### Singe band
+#### Singe band
 Right click on the Layer in the Layers Panel, click duplicate, 
 move the copied layer to the top, and rename to "singleband", click enable checkmark.
 Right click on the Singleband layer in the layers panel and choose properties. 
@@ -89,6 +89,51 @@ Add the output image (randIndHR01.tif), and edit min/max values in the same way 
 
 <img src="illustrations/HighResDerived.png" alt="Drawing" width="400"/>
 
+## Extracting / visualising Spectra
+You can view spectra by means of "Temporal/Spectral Profile" plugin.
+You can obtain this plugin from 
 
+Plugins > Manage and Install Plugins
 
+Select "allBands01a" layer, and start this plugin.
 
+<img src="illustrations/spectralProfile.png" alt="Drawing" width="400"/>
+
+## Image Filtering
+#### Obtaining a panchromatic
+Using raster algebra (Raster > Raster Calculator), add all bands of RGBNir01 and divide by total number of bands (to find the average): 
+
+("RGBNir01@1" + "RGBNir01@2" + "RGBNir01@3" + "RGBNir01@4") / 4.0
+
+<img src="illustrations/RasterCalcPanChrom.png" alt="Drawing" width="400"/>
+
+Save it in your workspace directory, as PanChrom01 in GeoTIFF format. 
+You should now see a grayscale image. Edit min/max values for better display.
+
+#### Spatial filtering
+We can sharpen this image using orfeo toolbox. As long as your orfeo toolbox installed correctly, you should be able to access it from within QGIS, as Processing > Toolbox.
+
+A simple high-pass filter is a difference of the original image and a smoothed version.
+Choose: Image Filtering > Smoothing (mean)
+Select smoothing type "mean", radius of 2, and save in the workspace directory as LowPass.
+
+Next, use Raster Calculator to subtract Low Pass image from the Pan Chromatic. 
+Save it as HighPass.
+
+<img src="illustrations/highPass.png" alt="Drawing" width="400"/>
+
+#### Pan Sharpening
+As mentioned earlier, sattelite data often comes at various spatial resolutions at different sensors. 
+A common technique to enhance the image quality is to apply a monochrome image from high resolution channels (panchromatic) to low resolution channels. The technique is called pan sharpening. 
+For the sake of an excersize we will apply this technique to the low resolution radiometric indices derived image, so we can compare it with the full resolution derived image.
+
+The correct orfeo tool to use is otbcli_BundleToPerfectSensor.
+This command must be run from the terminal:
+
+otbcli_BundleToPerfectSensor -inp PanChrom01.tif -inxs randInd01.tif -out randInd01PanSharp01.tif
+
+Adjust the min/max values, and you should now be able to compare High Resolution, Low Resolution and Pan Sharpened versions of derived radiometric product image:
+
+<img src="illustrations/highRes.png" alt="Drawing" width="400"/>
+<img src="illustrations/lowRes.png" alt="Drawing" width="400"/>
+<img src="illustrations/panSharp.png" alt="Drawing" width="400"/>
