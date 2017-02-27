@@ -21,7 +21,10 @@ the range of brightness levels (0-4095) to brightness as a ratio (0-1).
 The source data you can find on https://scihub.copernicus.eu/
 
 The multispectral data is in the file **allBands01a.tif**
-You can download it from Dropbox: https://www.dropbox.com/s/aizkdm22crh9ydx/allBands01a.tif.zip?dl=0
+You can download it from Dropbox: 
+
+https://www.dropbox.com/s/aizkdm22crh9ydx/allBands01a.tif.zip?dl=0
+
 This file contains all bands available from Sentinel 2, with band 8A placed in band 9, 9 in 10, etc.
 
 ## Load raster (single band, RGB combination)
@@ -70,7 +73,9 @@ Zoom into area free of cloud cover and load min/max values while clipping extent
 
 <img src="illustrations/clipToCanvas.png" alt="Drawing" width="400"/>
 
-The resolution on this image is rather poor. Various channels of Sentinel 2 come at different resolution, the highest resolution channels are at 10 m/px, this image was downsampled to the lowest common resolution of all channels, that is 60 m/px. You can find the spatial resolution of all channels on this page: https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial
+The resolution on this image is rather poor. Various channels of Sentinel 2 come at different resolution, the highest resolution channels are at 10 m/px, this image was downsampled to the lowest common resolution of all channels, that is 60 m/px. You can find the spatial resolution of all channels on this page: 
+
+https://earth.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial
 
 For most radiometric indices we only need R, G, B, and NIR channels, these are available in 10 m/px, and you can download these from:
 
