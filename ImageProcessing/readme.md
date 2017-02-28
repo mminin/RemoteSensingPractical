@@ -138,3 +138,17 @@ Adjust the min/max values, and you should now be able to compare High Resolution
 <img src="illustrations/highRes.png" alt="Drawing" width="400"/>
 <img src="illustrations/lowRes.png" alt="Drawing" width="400"/>
 <img src="illustrations/panSharp.png" alt="Drawing" width="400"/>
+
+## PCA (Principal component analysis)
+A visual example explaining the theory behind PCA can be found here: http://setosa.io/ev/principal-component-analysis/
+
+We can conduct a PCA over a raster in QGIS using "PCA" plugin.
+Select the high resolution RGBNir raster as input, choose 3 principal components, provide a name for the output file in the workspace directory and click OK. This plugin may take a few minutes to run. 
+Zoom onto area without clounds and load new min/max values clipping to extent.
+
+<img src="illustrations/PCA.png" alt="Drawing" width="400"/>
+
+## Homework (TBC)
+Repeat the excersize with data of your choosing from  landsat 5 or 7/8 (30 minutes).
+Discuss your finidings in a short (30 minutes) report.
+Data for landsat can be found with https://earthexplorer.usgs.gov/
