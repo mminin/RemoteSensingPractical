@@ -114,6 +114,8 @@ You should now see a grayscale image. Edit min/max values for better display.
 #### Spatial filtering
 We can sharpen this image using orfeo toolbox. As long as your orfeo toolbox installed correctly, you should be able to access it from within QGIS, as Processing > Toolbox.
 
+_Note that Processing Toolbox must be set to "Advanced Interface" (dropbox on the bottom of the window) in order to see Orfeo tools_
+
 A simple high-pass filter is a difference of the original image and a smoothed version.
 Choose: Image Filtering > Smoothing (mean)
 Select smoothing type "mean", radius of 2, and save in the workspace directory as LowPass.
