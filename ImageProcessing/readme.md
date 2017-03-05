@@ -56,7 +56,7 @@ You should now see high altitude clouds highlighted in purple.
 
 ## Producing radiometric indices derived maps
 
-To produced radiometric indices we will be using orfeo toolbox.
+To produce radiometric indices we will be using orfeo toolbox.
 The correct tool to use is otbcli_RadiometricIndices
 
 From the workspace directory run 
