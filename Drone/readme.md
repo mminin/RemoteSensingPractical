@@ -38,33 +38,67 @@ camera orinetations from the previous step
 
 _MicMac tools are still under development and can only take us this far.
 
-_Further processing will be done in QGIS
+_Further processing will be done in QGIS and meshlab
 
-# Stage 2: Converting point cloud to orthoimagery and DEM
+# Stage 2: Producing DEM 
+(after http://www.spatialguru.com/gdal-rasters-from-irregular-point-or-ascii-data/)
+
+## Step 2.1: Turn mesh into CSV:
+This step is best done with meshlab.
+Open point cloud in meshlab.
+Click on Filters > Point Set > Surface Reconstruction: Poisson
+Click Apply
+Click File > Save Mesh As
+and save as grid.xyz
+Convert to CSV using:
+
+    sed 's/ /,/g' grid.xyz > grid.csv
+
+## Step 2.2: Make virtual raster to trick gdal into accepting it:
+Create virtual header grid.vrt containing:
+    
+    <OGRVRTDataSource>
+    <OGRVRTLayer name="grid">
+    <SrcDataSource>grid.csv</SrcDataSource>
+    <GeometryType>wkbPoint</GeometryType>
+    <LayerSRS>WGS84</LayerSRS>
+    <GeometryField separator=" " encoding="PointFromColumns" x="field_1" y="field_2" z="field_3"/>
+    </OGRVRTLayer>
+    </OGRVRTDataSource>
+
+## Step 2.3: Convert to tiff using gdal:
+
+    gdal_grid -zfield field_3 -l grid grid.vrt newgrid.tif
+
+# Stage 3: Converting point cloud to orthoimagery
 This can be accomplised by conveting 3D point cloud to a 2D point feature class.
 
-## Step 2.1: Convert PLY from Binary to ASCII format
+## Step 3.1: Convert PLY from Binary to ASCII format
 Open Point Cloud produced in pervious step in meshlab.
 Save it as .ply while unclicking checkbox "binary", while preserving vertex colour.
 Open the file with command "less", you will see that the first 15 lines are text, the following are numbers. 
 
-## Step 2.2: Remove the headers using command "tail"
+## Step 3.2: Remove the headers using command "tail"
 Run
 
     tail -n +15 mesh03.ply >mesh04.ply
 
-## Step 2.3: Convert to CSV:
+## Step 3.3: Convert to CSV:
 Run
 
     sed 's/ /,/g' mesh04.ply > mesh04.csv
     
-## Step 2.4: Import to QGIS:
+## Step 3.4: Import to QGIS:
 
 Click on "Add Delimited Text Layer" button, and find your file.
 Select first column (field_1) as X and second (field_2) as Y.
 Save it in SpatiaLite format (this indexes the table, otherwise interpolation will not be possible).
 
-## Step 2.5: Interpolate:
-Use interpolation plugin, set a convinient cell size (i'm using 0.02 in this example).
-Repeat for fields 3 (Z); 4 (Red), 5 (Geen), 6 (Blue).
+## Step 3.5: Interpolate:
+Use Raster > Analysis > Grid (Interpolation)...
+
+Choosing Z Field 4, 5, then 6, setting Algorithm to "Inverse distance to a power" and "Max points" to 10.
+This step may take a few moments. This will produce orthorectified rasters for different channels. 
+Combined them to get RGB image.
+
 
