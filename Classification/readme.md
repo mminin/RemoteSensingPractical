@@ -6,4 +6,5 @@ Consists of:
 * Classification Stage
 * Output Stage
 ## Training Stage
-
+Begin by selecting representative region, then 
+### 
