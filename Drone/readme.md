@@ -32,7 +32,7 @@ camera orinetations from the previous step
 
     mm3d PIMs MicMac ".*JPG" Ori-Orientation
     
-## Step 1.4: Combine all depth maps into a single point cloud:
+## Step 1.4: Combine all depth maps into a single point cloud,"PIMs2Ply":
 
     mm3d PIMs2Ply MicMac
 
