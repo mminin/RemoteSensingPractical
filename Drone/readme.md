@@ -33,6 +33,34 @@ Run
 
     mm3d PIMs2Ply MicMac
 
+------------- Ok up to here
+-----------------------------------
+
+## Step 5: Define a normal to horizontal (for making orthogonal projection)
+
+mm3d RepLocBascule ".*JPG" Ori-Orientation HORVy R-F1.xml PostPlan=_MasqFacade1
+
+## Step 6: Create DSM, PIMs2MNT (doesn't work):
+
+
+
+
+
+Convert point cloud to XYZ, use sed to convert to CSV:
+
+    sed 's/ /,/g' mq.xyz > grid.csv
+
+http://www.spatialguru.com/gdal-rasters-from-irregular-point-or-ascii-data/
+
+
+mm3d Pims2MNT MicMac DoOrtho=1 Repere=R-F1.xml Pat=".*JPG"
+
+gdal_grid -zfield field_3 -l grid grid.vrt newgrid.tif
+
+
+
+## ? Step7: Create orthomosaic, Tawny??
+
 
 
 ------- Scratch workspace below ----
