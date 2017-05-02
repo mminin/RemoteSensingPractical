@@ -36,9 +36,9 @@ camera orinetations from the previous step
 
     mm3d PIMs2Ply MicMac
 
-_MicMac tools are still under development and can only take us this far.
+_MicMac tools are still under development and can only take us this far._
 
-_Further processing will be done in QGIS and meshlab
+_Further processing will be done in QGIS and meshlab_
 
 # Stage 2: Producing DEM 
 (after http://www.spatialguru.com/gdal-rasters-from-irregular-point-or-ascii-data/)
