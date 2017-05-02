@@ -63,36 +63,3 @@ gdal_grid -zfield field_3 -l grid grid.vrt newgrid.tif
 
 
 
-------- Scratch workspace below ----
-
-    mm3d CenterBascule ".*JPG" Ori-Orientation Ori-Orientation All-RTL
-    
-    
-
-## Step3: Sparse point clouds:
-Now we can calculate sparce clouds for every orientation
-
-    mm3d C3DC Forest
-because Ground is not implemented yet
-
-
-## Step4: Orthomosaic, "Tawny"
-
-Must first run
-
-      mm3d CenterBascule "R.*.JPG" All-Rel Nav-adjusted-RTL All-RTL
-      mm3d ChgSysCo  "R.*JPG" All-RTL SysCoRTL.xml@SysCoBL72_EPSG31370.xml All-BL72
-      mm3d Malt Ortho "R.*JPG" All-BL72 DirMEC=MEC DefCor=0 AffineLast=1 Regul=0.005 HrOr=0 LrOr=0 ZoomF=1
-      
-      mm3d Malt Ortho ".*JPG" All-RTL DirMEC=MEC DefCor=0 AffineLast=1 Regul=0.005 HrOr=0 LrOr=0 ZoomF=1
-      mm3d 
-      mm3d Malt Ortho ".*JPG"
-
-To generate DSM,
-
-Afterwards must run 
-
-      mm3d Tawny Ortho-MEC
-
-
-
