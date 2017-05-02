@@ -3,6 +3,8 @@ For this tutorial we use MicMac, available here: http://micmac.ensg.eu
 Tutorial assumes the images were collected with a drone and contain 
 camera information in exif tags comprehenisible for this software.
 
+Sample data can be found here: https://www.dropbox.com/s/6pl4dj98emzqyxn/data.zip?dl=0
+
 # Stage 1: Generating Point Cloud
 
 ## Step 1.1: Find matching points (tie points), "Tapioca"
