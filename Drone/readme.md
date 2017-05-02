@@ -99,6 +99,4 @@ Use Raster > Analysis > Grid (Interpolation)...
 
 Choosing Z Field 4, 5, then 6, setting Algorithm to "Inverse distance to a power" and "Max points" to 10.
 This step may take a few moments. This will produce orthorectified rasters for different channels. 
-Combined them to get RGB image.
-
-
+Combine them to get RGB image.
