@@ -62,38 +62,9 @@ Run
 
 Click on "Add Delimited Text Layer" button, and find your file.
 Select first column (field_1) as X and second (field_2) as Y.
+Save it in SpatiaLite format (this indexes the table, otherwise interpolation will not be possible).
 
-
-
-
-
-------------- Ok up to here
------------------------------------
-
-## Step 5: Define a normal to horizontal (for making orthogonal projection)
-
-mm3d RepLocBascule ".*JPG" Ori-Orientation HORVy R-F1.xml PostPlan=_MasqFacade1
-
-## Step 6: Create DSM, PIMs2MNT (doesn't work):
-
-
-
-
-
-Convert point cloud to XYZ, use sed to convert to CSV:
-
-    sed 's/ /,/g' mq.xyz > grid.csv
-
-http://www.spatialguru.com/gdal-rasters-from-irregular-point-or-ascii-data/
-
-
-mm3d Pims2MNT MicMac DoOrtho=1 Repere=R-F1.xml Pat=".*JPG"
-
-gdal_grid -zfield field_3 -l grid grid.vrt newgrid.tif
-
-
-
-## ? Step7: Create orthomosaic, Tawny??
-
-
+## Step 2.5: Interpolate:
+Use interpolation plugin, set a convinient cell size (i'm using 0.02 in this example).
+Repeat for fields 3 (Z); 4 (Red), 5 (Geen), 6 (Blue).
 
