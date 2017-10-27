@@ -33,7 +33,7 @@ saga_cmd io_gdal 2 -GRIDS splineB.sgrd -FILE B.tif
 gdal_merge.py -separate -o ortho.tif R.tif G.tif B.tif
 
 ```
-_Alternative approach is to use saga, but it doesn't quite work from the command line:_
+_NOTE: Alternative approach is to use saga, but it doesn't quite work from the command line:_
 ```
 saga_cmd grid_visualisation 3 -R_GRID splineR.sgrd -R_METHOD 0 -G_GRID splineG.sgrd -G_METHOD 0 -B_GRID splineB.sgrd -B_METHOD 0 -RGB ortho
 saga_cmd io_gdal 2 -GRIDS ortho.sgrd -FILE ortho.tif
