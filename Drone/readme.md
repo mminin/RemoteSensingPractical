@@ -86,9 +86,15 @@ Run
     tail -n +15 mesh03.ply >mesh04.ply
 
 ## Step 3.3: Convert to CSV:
+_Note: If your file was written out with commas instead of dots as a decimal symbol (check it with "less"), you might want to run
+
+    sed 's/,/\./g' mesh04.ply > mesh04a.ply
+_(Whether you'll need to do it or not will probably depend on the settings of your locale - American vs Europe)
+
 Run
 
     sed 's/ /,/g' mesh04.ply > mesh04.csv
+
     
 ## Step 3.4: Import to QGIS:
 
