@@ -2,7 +2,7 @@
 
 1. Export point cloud (PC) from meshlab to .ply with colours, without normals, without binary, remove header and replace commas with dots.
 
-2. To convert PC to grids, import .ply into SAGA format, and do spline B interplolation by runnig these commands:
+2. To convert PC to grids, import .ply into SAGA format, and do spline B interplolation by running these commands:
 ```
 saga_cmd io_shapes 16 -POINTS OutputZ -FILE input.ply -ZFIELD 3 -FIELDSEP 1
 saga_cmd io_shapes 16 -POINTS OutputR -FILE input.ply -ZFIELD 4 -FIELDSEP 1
