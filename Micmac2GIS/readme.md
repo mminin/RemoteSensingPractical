@@ -1,4 +1,4 @@
-#This project explains how to convert Micmac point cloud (.ply) to TIFF DEM and Orthoimage using SAGA.
+# This project explains how to convert Micmac point cloud (.ply) to TIFF DEM and Orthoimage using SAGA.
 
 1. Export point cloud (PC) from meshlab to .ply with colours, without normals, without binary, remove header and replace commas with dots.
 
