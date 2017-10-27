@@ -4,8 +4,8 @@
 
 2. To convert PC to grids, import .ply into SAGA format, and do spline B interplolation by runnig these commands:
 
-saga_cmd io_shapes 16 -POINTS OutputZ -FILE input.ply -ZFIELD 3 -FIELDSEP 1
-saga_cmd io_shapes 16 -POINTS OutputR -FILE input.ply -ZFIELD 4 -FIELDSEP 1
+     saga_cmd io_shapes 16 -POINTS OutputZ -FILE input.ply -ZFIELD 3 -FIELDSEP 1
+    saga_cmd io_shapes 16 -POINTS OutputR -FILE input.ply -ZFIELD 4 -FIELDSEP 1
 saga_cmd io_shapes 16 -POINTS OutputG -FILE input.ply -ZFIELD 5 -FIELDSEP 1
 saga_cmd io_shapes 16 -POINTS OutputB -FILE input.ply -ZFIELD 6 -FIELDSEP 1
 
